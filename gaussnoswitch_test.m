@@ -1,13 +1,17 @@
-function [A,x] = gauss(A,b)
-M=zeros(3);
+clc 
+clear
+
+A=[2 -1 1 -2; 0 2 0 -1; 1 0 -2 1;0 2 1 1];
+b=[0;1;0;4];
+
 n=length(b); % the number of equations
 for k=1:n-1
     for i=k+1:n
-        M(i,k)=(A(i,k)/A(k,k));
-        for j=1:n
-            A(i,j)=A(i,j)-M(i,k)*A(k,j);
+        A(i,k)=(A(i,k)/A(k,k));
+        for j=k+1:n
+            A(i,j)=A(i,j)-A(i,k)*A(k,j);
         end
-        b(i)=b(i)-(A(i,k)/A(k,k))*b(k);
+        b(i)=b(i)-A(i,k)*b(k);
     end
 end
 
@@ -20,3 +24,7 @@ for i=n-1:-1:1
         x(i)=x(i)-A(i,j)*x(j)/A(i,i);
     end
 end
+
+A
+x
+b
