@@ -5,6 +5,7 @@ sign=1;
 
 % Row
 for i=1:n
+
     for j=1:m
         if i ~= j
         sum=M(i,j)+sum;
@@ -15,6 +16,7 @@ for i=1:n
         disp('M is not diagonally dominant')
         break
     end
+    sum=0;
 end
 
 if sign~=0
