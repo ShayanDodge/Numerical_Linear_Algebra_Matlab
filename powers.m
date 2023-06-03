@@ -1,4 +1,6 @@
-function [ld_after,w,m] = powers(A,z,tol)
+function [ld_after,w,m] = powers(A,tol)
+[X,D]=eig(A);
+z=X(:,1)+X(:,2)+X(:,3);
 w=z/norm(z);
 m=0;
 ld_before=0;
